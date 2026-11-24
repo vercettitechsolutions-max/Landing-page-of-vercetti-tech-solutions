@@ -248,6 +248,35 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 .btn-shine:hover::before { left: 130%; }
 
+/* ---------- Mobile layout ---------- */
+@media (max-width: 991.98px) {
+  .hero { padding-top: 7rem; padding-bottom: 3.5rem; }
+  .brand-mark-wrap { max-width: 320px; margin: 0 auto; }
+}
+@media (max-width: 767.98px) {
+  .section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .section-title { font-size: 1.75rem; }
+  .section-header { margin-bottom: 2rem; }
+  .hero-title { font-size: clamp(2rem, 9vw, 2.6rem); line-height: 1.12; }
+  .hero .btn-lg-custom { width: 100%; justify-content: center; }
+  .expertise-tab { padding: 1rem 0.25rem; font-size: 1rem; }
+  .expertise-arrow { display: none; }
+  .expertise-lead { font-size: 1rem; }
+  .stat-number { font-size: 2rem; }
+  .cta-section { padding: 2rem 1.5rem; text-align: left; }
+  .cta-section h2 { font-size: 1.5rem; }
+  .cta-section .btn { width: 100%; }
+  .team-avatar { width: 60px; height: 60px; font-size: 1rem; }
+  #world-map { height: 260px; }
+  .map-wrap { padding: 0.75rem; }
+  .footer-nexora { padding-top: 3rem; }
+}
+@media (max-width: 575.98px) {
+  .hero-title .line > span { white-space: normal; }
+  .kicker { font-size: 0.72rem; }
+  .btn { padding: 0.7rem 1.25rem; }
+}
+
 /* ---------- Respect reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   #intro { animation-duration: 0.01s; animation-delay: 0s; }
