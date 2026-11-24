@@ -1,0 +1,228 @@
+/* =====================================================
+   VERCETTI — Premium layer for the home page
+   Colours and brand palette come from custom.css unchanged.
+   ===================================================== */
+
+/* ---------- Typography ---------- */
+h1, h2, h3 { letter-spacing: -0.03em; }
+.section-title { font-size: clamp(1.9rem, 3.2vw, 2.6rem); line-height: 1.15; margin-bottom: 1rem; }
+.section-subtitle { font-size: 1.1rem; }
+
+/* Kicker: plain typographic label, no pill, no dot */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--n-font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--n-primary);
+  margin-bottom: 1rem;
+}
+.kicker::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--n-primary);
+}
+
+/* ---------- Turn off ambient background motion ---------- */
+.hero::before,
+.hero::after { animation: none !important; display: none; }
+.brand-mark-glow,
+.brand-mark-ring { display: none; }
+.brand-mark-logo { animation: none !important; }
+
+/* ---------- Intro overlay (auto-clears; never blocks the page) ---------- */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--n-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: introOut 0.7s cubic-bezier(.7, 0, .2, 1) 2.1s forwards;
+  pointer-events: none;
+}
+.intro-inner { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+.intro-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  animation: introLogo 0.8s cubic-bezier(.2, .8, .2, 1) 0.15s forwards;
+}
+.intro-name {
+  font-family: var(--n-font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.5s forwards;
+}
+.intro-name span { color: var(--n-primary); }
+.intro-bar {
+  width: 140px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+.intro-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--n-gradient-primary);
+  animation: introBar 1.4s cubic-bezier(.6, 0, .2, 1) 0.4s forwards;
+}
+
+@keyframes introLogo { to { opacity: 1; transform: none; } }
+@keyframes introBar { to { width: 100%; } }
+@keyframes introOut { to { opacity: 0; visibility: hidden; } }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Hero entrance ---------- */
+.hero-title .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.hero-title .line > span {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: lineUp 0.9s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+.hero-title .line:nth-child(1) > span { animation-delay: 0.45s; }
+.hero-title .line:nth-child(2) > span { animation-delay: 0.6s; }
+.hero-title .line:nth-child(3) > span { animation-delay: 0.75s; }
+.hero-title em { font-style: normal; }
+@keyframes lineUp { to { transform: none; } }
+
+.hero-in {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s cubic-bezier(.2, .8, .2, 1) calc(var(--d, 0s) + 0.35s) forwards;
+}
+
+/* ---------- Expertise explorer ---------- */
+.expertise-tabs { gap: 0; border-top: 1px solid var(--n-border); }
+.expertise-tab {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.35rem 0.25rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--n-border);
+  text-align: left;
+  font-family: var(--n-font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--n-slate-light);
+  transition: color 0.3s ease, padding-left 0.35s cubic-bezier(.2, .8, .2, 1);
+  position: relative;
+}
+.expertise-tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--n-gradient-primary);
+  transition: width 0.5s cubic-bezier(.2, .8, .2, 1);
+}
+.expertise-tab:hover { color: var(--n-navy); }
+.expertise-tab.active {
+  color: var(--n-navy);
+  padding-left: 0.75rem;
+}
+.expertise-tab.active::before { width: 100%; }
+.expertise-num {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--n-primary);
+  min-width: 2rem;
+}
+.expertise-name { flex: 1; }
+.expertise-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.35s ease;
+  color: var(--n-primary);
+}
+.expertise-tab.active .expertise-arrow,
+.expertise-tab:hover .expertise-arrow { opacity: 1; transform: none; }
+
+.expertise-panels {
+  background: var(--n-white);
+  padding: 2.5rem;
+  border: 1px solid var(--n-border);
+  min-height: 340px;
+}
+.expertise-title {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin-bottom: 0.75rem;
+}
+.expertise-lead { font-size: 1.05rem; color: var(--n-slate); margin-bottom: 1.5rem; }
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 1.5rem;
+}
+.expertise-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--n-navy);
+  font-weight: 500;
+  font-size: 0.97rem;
+}
+.expertise-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 10px;
+  height: 1.5px;
+  background: var(--n-primary);
+}
+@media (max-width: 575.98px) {
+  .expertise-list { grid-template-columns: 1fr; }
+  .expertise-panels { padding: 1.5rem; }
+}
+
+/* Panel fade: tidy and quick */
+.expertise-panels .tab-pane.fade { transition: opacity 0.35s ease; }
+
+/* ---------- Buttons: subtle shine on primary CTAs ---------- */
+.btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+.btn-shine:hover::before { left: 130%; }
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  #intro { animation-duration: 0.01s; animation-delay: 0s; }
+  .hero-title .line > span,
+  .hero-in { animation: none; transform: none; opacity: 1; }
+  .intro-bar span { animation: none; width: 100%; }
+}
