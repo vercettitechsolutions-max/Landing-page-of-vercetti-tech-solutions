@@ -56,6 +56,10 @@ h1, h2, h3 { letter-spacing: -0.03em; }
     linear-gradient(to bottom, transparent 42%, #FFFFFF 42%, #FFFFFF 58%, transparent 58%) center / 100% 100% no-repeat,
     linear-gradient(to right, transparent 46%, #C8102E 46%, #C8102E 54%, transparent 54%) center / 100% 100% no-repeat,
     linear-gradient(to bottom, transparent 46%, #C8102E 46%, #C8102E 54%, transparent 54%) center / 100% 100% no-repeat,
+    linear-gradient(45deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%),
+    linear-gradient(45deg, transparent 43%, #FFFFFF 43%, #FFFFFF 57%, transparent 57%),
+    linear-gradient(-45deg, transparent 43%, #FFFFFF 43%, #FFFFFF 57%, transparent 57%),
     #012169;
   border: 3px solid #FFFFFF;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
@@ -69,7 +73,14 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   border: 3px solid #FFFFFF;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
-.team-in { border: 3px solid #FFFFFF; }
+/* Indian tricolour: saffron, white with navy chakra ring, green */
+.team-in {
+  background:
+    radial-gradient(circle, transparent 0 13px, #000080 13px 15px, transparent 15px),
+    linear-gradient(to bottom, #FF9933 0 33.3%, #FFFFFF 33.3% 66.6%, #138808 66.6% 100%);
+  color: #000080;
+  border: 3px solid #FFFFFF;
+}
 .team-assoc { background: var(--n-navy); font-size: 1.6rem; }
 
 /* ---------- Map ---------- */
@@ -274,6 +285,19 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 
 /* ---------- Mobile layout ---------- */
 @media (max-width: 991.98px) {
+  /* Solid mobile menu: nothing shows through */
+  .navbar-nexora:has(.navbar-collapse.show),
+  .navbar-nexora:has(.navbar-collapse.collapsing) {
+    background: #FFFFFF;
+    box-shadow: 0 12px 32px rgba(11, 20, 55, 0.12);
+  }
+  .navbar-nexora .navbar-collapse {
+    background: #FFFFFF;
+    margin: 0.75rem -0.75rem 0;
+    padding: 0.75rem 1rem 1.25rem;
+    border-radius: 12px;
+  }
+  .navbar-nexora .nav-link { padding: 0.8rem 1rem !important; }
   .hero { padding-top: 7rem; padding-bottom: 3.5rem; }
   .brand-mark-wrap { max-width: 320px; margin: 0 auto; }
 }
