@@ -49,9 +49,27 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 
 /* ---------- Flag-coloured avatars ---------- */
-.team-uk { background: linear-gradient(135deg, #012169 0%, #012169 55%, #C8102E 55%, #C8102E 100%); }
-.team-in { background: linear-gradient(180deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%); color: #000080; }
-.team-us { background: linear-gradient(135deg, #3C3B6E 0%, #3C3B6E 42%, #B22234 42%, #B22234 100%); }
+/* Union Jack: blue field, white saltire, red saltire */
+.team-uk {
+  background:
+    linear-gradient(to right, transparent 42%, #FFFFFF 42%, #FFFFFF 58%, transparent 58%) center / 100% 100% no-repeat,
+    linear-gradient(to bottom, transparent 42%, #FFFFFF 42%, #FFFFFF 58%, transparent 58%) center / 100% 100% no-repeat,
+    linear-gradient(to right, transparent 46%, #C8102E 46%, #C8102E 54%, transparent 54%) center / 100% 100% no-repeat,
+    linear-gradient(to bottom, transparent 46%, #C8102E 46%, #C8102E 54%, transparent 54%) center / 100% 100% no-repeat,
+    #012169;
+  border: 3px solid #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+/* Stars and stripes: blue canton with stars, red and white stripes */
+.team-us {
+  background:
+    radial-gradient(circle, #FFFFFF 1.3px, transparent 1.7px) 4px 4px / 9px 9px,
+    linear-gradient(#3C3B6E, #3C3B6E) 0 0 / 46% 54% no-repeat,
+    repeating-linear-gradient(to bottom, #B22234 0 7.7%, #FFFFFF 7.7% 15.4%);
+  border: 3px solid #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+.team-in { border: 3px solid #FFFFFF; }
 .team-assoc { background: var(--n-navy); font-size: 1.6rem; }
 
 /* ---------- Map ---------- */
