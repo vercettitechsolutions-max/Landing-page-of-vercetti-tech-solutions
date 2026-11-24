@@ -299,33 +299,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 
 /* ---------- Mobile layout ---------- */
 @media (max-width: 991.98px) {
-  /* Solid full-screen mobile menu: header and panel are one opaque white sheet */
-  .navbar-nexora.menu-open,
-  .navbar-nexora:has(.navbar-collapse.show),
-  .navbar-nexora:has(.navbar-collapse.collapsing) {
-    background: #FFFFFF !important;
-    backdrop-filter: none !important;
-    box-shadow: none;
-    min-height: 100vh;
-    min-height: 100dvh;
-    align-items: flex-start;
-    transition: none;
-  }
-  .navbar-nexora .navbar-collapse {
-    background: #FFFFFF;
-    margin-top: 1.5rem;
-    padding: 0.5rem 0 1.25rem;
-    border-top: 1px solid var(--n-border);
-  }
-  .navbar-nexora .navbar-nav .nav-link {
-    font-size: 1.35rem;
-    opacity: 1;
-    border-bottom: 1px solid var(--n-border);
-    border-radius: 0;
-    background: transparent !important;
-  }
-  body.menu-lock { overflow: hidden; }
-  .navbar-nexora .nav-link { padding: 0.8rem 1rem !important; }
+  /* Mobile menu styles live in custom.css so every page shares them */
   .hero { padding-top: 7rem; padding-bottom: 3.5rem; }
   .brand-mark-wrap { max-width: 320px; margin: 0 auto; }
 }

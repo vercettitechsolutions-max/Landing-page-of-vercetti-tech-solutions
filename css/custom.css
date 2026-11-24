@@ -981,3 +981,35 @@ a { text-decoration: none; }
 @media (max-width: 767.98px) {
   .legal-toc ol { columns: 1; }
 }
+
+/* =====================================================
+   MOBILE MENU — solid full-screen sheet on every page
+   ===================================================== */
+@media (max-width: 991.98px) {
+  .navbar-nexora.menu-open,
+  .navbar-nexora:has(.navbar-collapse.show),
+  .navbar-nexora:has(.navbar-collapse.collapsing) {
+    background: #FFFFFF !important;
+    backdrop-filter: none !important;
+    box-shadow: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-items: flex-start;
+    transition: none;
+  }
+  .navbar-nexora .navbar-collapse {
+    background: #FFFFFF;
+    margin-top: 1.5rem;
+    padding: 0.5rem 0 1.25rem;
+    border-top: 1px solid var(--n-border);
+  }
+  .navbar-nexora .navbar-nav .nav-link {
+    padding: 0.8rem 1rem !important;
+    font-size: 1.35rem;
+    opacity: 1;
+    border-bottom: 1px solid var(--n-border);
+    border-radius: 0;
+    background: transparent !important;
+  }
+  body.menu-lock { overflow: hidden; }
+}
