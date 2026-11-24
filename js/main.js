@@ -21,8 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const navCollapse = document.getElementById('mainNav');
 
   if (toggler && navCollapse) {
-    navCollapse.addEventListener('show.bs.collapse', () => toggler.classList.add('active'));
-    navCollapse.addEventListener('hide.bs.collapse', () => toggler.classList.remove('active'));
+    navCollapse.addEventListener('show.bs.collapse', () => {
+      toggler.classList.add('active');
+      navbar?.classList.add('menu-open');
+      document.body.classList.add('menu-lock');
+    });
+    navCollapse.addEventListener('hide.bs.collapse', () => {
+      toggler.classList.remove('active');
+    });
+    navCollapse.addEventListener('hidden.bs.collapse', () => {
+      navbar?.classList.remove('menu-open');
+      document.body.classList.remove('menu-lock');
+    });
 
     // Close menu on link click (mobile)
     navCollapse.querySelectorAll('.nav-link').forEach(link => {

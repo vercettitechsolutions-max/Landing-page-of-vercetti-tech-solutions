@@ -66,13 +66,27 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 }
 /* Stars and stripes: blue canton with stars, red and white stripes */
 .team-us {
-  background:
-    radial-gradient(circle, #FFFFFF 1.3px, transparent 1.7px) 4px 4px / 9px 9px,
-    linear-gradient(#3C3B6E, #3C3B6E) 0 0 / 46% 54% no-repeat,
-    repeating-linear-gradient(to bottom, #B22234 0 7.7%, #FFFFFF 7.7% 15.4%);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: repeating-linear-gradient(to bottom, #B22234 0 7.7%, #FFFFFF 7.7% 15.4%);
   border: 3px solid #FFFFFF;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
+/* Blue canton with stars, confined to the top-left corner */
+.team-us::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  height: 54%;
+  background:
+    radial-gradient(circle, #FFFFFF 1.2px, transparent 1.6px) 2px 2px / 7px 7px,
+    #3C3B6E;
+  z-index: -1;
+}
+
 /* Indian tricolour: saffron, white with navy chakra ring, green */
 .team-in {
   background:
@@ -285,18 +299,32 @@ h1, h2, h3 { letter-spacing: -0.03em; }
 
 /* ---------- Mobile layout ---------- */
 @media (max-width: 991.98px) {
-  /* Solid mobile menu: nothing shows through */
+  /* Solid full-screen mobile menu: header and panel are one opaque white sheet */
+  .navbar-nexora.menu-open,
   .navbar-nexora:has(.navbar-collapse.show),
   .navbar-nexora:has(.navbar-collapse.collapsing) {
-    background: #FFFFFF;
-    box-shadow: 0 12px 32px rgba(11, 20, 55, 0.12);
+    background: #FFFFFF !important;
+    backdrop-filter: none !important;
+    box-shadow: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-items: flex-start;
+    transition: none;
   }
   .navbar-nexora .navbar-collapse {
     background: #FFFFFF;
-    margin: 0.75rem -0.75rem 0;
-    padding: 0.75rem 1rem 1.25rem;
-    border-radius: 12px;
+    margin-top: 1.5rem;
+    padding: 0.5rem 0 1.25rem;
+    border-top: 1px solid var(--n-border);
   }
+  .navbar-nexora .navbar-nav .nav-link {
+    font-size: 1.35rem;
+    opacity: 1;
+    border-bottom: 1px solid var(--n-border);
+    border-radius: 0;
+    background: transparent !important;
+  }
+  body.menu-lock { overflow: hidden; }
   .navbar-nexora .nav-link { padding: 0.8rem 1rem !important; }
   .hero { padding-top: 7rem; padding-bottom: 3.5rem; }
   .brand-mark-wrap { max-width: 320px; margin: 0 auto; }
