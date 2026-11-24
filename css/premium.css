@@ -28,6 +28,35 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   background: var(--n-primary);
 }
 
+/* ---------- Half white, half grey rhythm ---------- */
+.bg-soft { background-color: #E6E9EF !important; }
+.expertise-panels { background: #FFFFFF; }
+
+/* ---------- Team avatars ---------- */
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--n-gradient-primary);
+  color: #fff;
+  font-family: var(--n-font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+
+/* ---------- Map ---------- */
+.map-wrap {
+  background: #FFFFFF;
+  border: 1px solid var(--n-border);
+  padding: 1.5rem;
+}
+#world-map { width: 100%; height: 420px; }
+@media (max-width: 575.98px) { #world-map { height: 280px; } }
+
 /* ---------- Turn off ambient background motion ---------- */
 .hero::before,
 .hero::after { animation: none !important; display: none; }
@@ -40,7 +69,7 @@ h1, h2, h3 { letter-spacing: -0.03em; }
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: var(--n-navy);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
